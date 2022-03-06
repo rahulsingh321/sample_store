@@ -1,6 +1,5 @@
 module Api
   class BaseController < ActionController::API
-    before_action :authenticate_user
     before_action :current_store
     rescue_from ActionController::ParameterMissing, with: :error_during_processing
     rescue_from ArgumentError, with: :error_during_processing
@@ -24,10 +23,6 @@ module Api
       @current_store ||= Store.find_by(url: request.domain) || Store.first
     end
 
-    def authenticate_user
-      # SKIP for now
-    end
-
     def render_serialized_payload(status = 200)
       render json: yield, status: status, content_type: content_type
     end
@@ -45,7 +40,7 @@ module Api
     end
 
     def resource_serializer
-      "::Api::V1::#{model_class.to_s.demodulize}Serializer".constantize
+      "Api::V1::#{model_class.to_s.demodulize}Serializer".constantize
     end
 
     def collection_serializer

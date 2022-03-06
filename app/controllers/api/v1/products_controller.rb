@@ -1,6 +1,6 @@
 module Api
   module V1
-    class ProductsController < ::Api::BaseController
+    class ProductsController < Api::BaseController
       before_action :find_product, only: [:update]
 
       def index
@@ -24,7 +24,7 @@ module Api
       end
 
       def find_product
-        @product = Product.find(id: params[:id])
+        @product = Product.find(params[:id])
       end
     end
   end

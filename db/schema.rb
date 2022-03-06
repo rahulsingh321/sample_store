@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 2022_02_27_141637) do
     t.decimal "price", precision: 10, scale: 2, null: false
     t.boolean "active"
     t.datetime "available_on"
+    t.string "currency"
     t.bigint "store_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

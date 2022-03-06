@@ -57,3 +57,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # API responder
 gem 'jsonapi-serializer'
+gem 'money'
