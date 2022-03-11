@@ -13,6 +13,19 @@ module Api
         render_serialized_payload { serialize_resource(@product) }
       end
 
+      def check_price
+        items = params[:items].gsub(/\s+/, "").split(',')
+        freq  = items.group_by { |item| item }.transform_values!(&:size)
+        items = Product.where(code: freq.keys).pluck(:code, :price).to_h
+
+        amount = 0
+        items.each do |item, price|
+          amount += (freq[item] * price)
+        end
+
+        render json: { I18n.t(:total) => Rails.application.helpers.display_price(amount) }.as_json, status: 200, content_type: 'application/json'
+      end
+
       def model_class
         Product
       end
