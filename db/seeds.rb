@@ -15,7 +15,6 @@ eu_store.url = 'eu.lvh.me:3000'
 eu_store.default_currency = 'EUR'
 eu_store.save!
 
-
 # Products
 print "##### Create products ##### \n"
 
@@ -24,7 +23,7 @@ print "##### Create products ##### \n"
   { code: 'TSHIRT', name: 'Reedsy T-shirt', price: 15.00 },
   { code: 'HOODIE', name: 'Reedsy Hoodie', price: 20.00 }
 ]
-.each do |product_attrs|
+  .each do |product_attrs|
   eu_store.products.where(code: product_attrs[:code]).first_or_create! do |product|
     product.name = product_attrs[:name]
     product.price = product_attrs[:price]

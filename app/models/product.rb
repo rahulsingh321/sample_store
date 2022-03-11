@@ -4,6 +4,6 @@ class Product < ApplicationRecord
   def self.available(available_on = nil)
     available_on ||= Time.current
 
-    where("active = ? and available_on <= ?", true, available_on)
+    where('active = ? and available_on <= ?', true, available_on)
   end
 end

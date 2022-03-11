@@ -10,33 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_27_141637) do
-
+ActiveRecord::Schema.define(version: 20_220_227_141_637) do
   # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+  enable_extension 'plpgsql'
 
-  create_table "products", force: :cascade do |t|
-    t.string "code"
-    t.string "name"
-    t.decimal "price", precision: 10, scale: 2, null: false
-    t.boolean "active"
-    t.datetime "available_on"
-    t.string "currency"
-    t.bigint "store_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["store_id"], name: "index_products_on_store_id"
+  create_table 'products', force: :cascade do |t|
+    t.string 'code'
+    t.string 'name'
+    t.decimal 'price', precision: 10, scale: 2, null: false
+    t.boolean 'active'
+    t.datetime 'available_on'
+    t.string 'currency'
+    t.bigint 'store_id'
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.index ['store_id'], name: 'index_products_on_store_id'
   end
 
-  create_table "stores", force: :cascade do |t|
-    t.string "code"
-    t.string "name"
-    t.string "url"
-    t.string "default_currency"
-    t.text "description"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+  create_table 'stores', force: :cascade do |t|
+    t.string 'code'
+    t.string 'name'
+    t.string 'url'
+    t.string 'default_currency'
+    t.text 'description'
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
   end
 
-  add_foreign_key "products", "stores"
+  add_foreign_key 'products', 'stores'
 end
