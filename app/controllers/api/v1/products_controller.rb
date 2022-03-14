@@ -43,3 +43,55 @@ module Api
     end
   end
 end
+
+
+# Cart
+#   total -
+#   item_total -
+#   adjustment_total
+#   created_at -
+#   updated_at -
+
+
+#   line_items
+#     cart_id
+#     product_id
+#     quantity
+#     price
+#     currency
+#     adjustment_total
+
+
+# Promotion
+#  name: 'Buy 2 get 1 free'
+#  product_ids: [1]
+
+#  rules:                        actions:
+#   product_ids IN []              OncreateLineitem           3/2
+
+# Promotion
+#   name: '30% OFF'
+
+#   rules:                       actions:
+#     => product_ids IN []           OncreateLineitem
+#     => quantity >= 3
+
+
+
+
+
+
+
+#  Promotion
+#    name: '30% OFF'
+
+#    actions:
+#      percent: 30%
+
+
+
+
+
+
+# Product
+#   price  x   quantity =  amount
